@@ -24,7 +24,6 @@ router.get('/', function(req, res, next) {
     });
 
 });
- 
 
 router.post('/mq/:cost', (req, res) => {
 
@@ -51,8 +50,5 @@ router.post('/mq/:cost', (req, res) => {
       res.redirect('/');
     });
 })  
-
-
-
 
 module.exports = router;
