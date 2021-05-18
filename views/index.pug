@@ -1,0 +1,238 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='stylesheets/normalize.css')
+  link(rel='stylesheet' href='stylesheets/grid.css')
+  link(rel='stylesheet' href='stylesheets/mdb.min.css')
+  link(rel='stylesheet' href='stylesheets/bootstrap.min.css')
+  link(rel='stylesheet' href='styles.css')
+
+
+  link(rel='stylesheet' href='res/css/queries.css')
+  link(rel='stylesheet' href='stylesheets/ionicons.min.css')
+  link(href='https://fonts.googleapis.com/css?family=Lato:100,300,300i,400' rel='stylesheet')
+  title Innovate: Digital Bank
+header.bar
+  nav
+    .row
+      img.logo(src='img/logo-outline.png' alt='Innovate logo')
+      img.logo-black(src='images/logo.png' alt='Innovatee logo')
+      ul.main-nav
+        li
+          a(href='/') Spending
+        li
+          a(href='/') Bills
+        li
+          a(href='/') Accounts
+        li
+          a(href='/') Support
+        li
+          a(href='/') Logout
+      a.mobile-nav-icon
+        i.js-mobile-nav-icon.ion-navicon-round
+section.section-spending
+  .row
+    h2 Bills
+  .row
+    h3
+      span#js-total
+    p Due this month: $3,562
+  .row
+    p#getResult1 Recent Transaction: $
+    p(style='font-weight: 200;') #{data} for grocery bill
+section.section-bill-list
+  .row.bill
+    .col.span-1-of-5
+      img.service-provider-logo(src='img/sp/dewa.png' alt='logo')
+    .col.span-2-of-5
+      h3 Water and Electricity
+      p
+        span#utilities_entity
+        span#utilities_account
+    .col.span-1-of-5
+      h3
+        span#utilities_amount
+    .col.span-1-of-5
+      a#utilities_pay_button.btn.btn-ghost(href='#confirm-popup-utiltities') Pay
+  .row.bill
+    .col.span-1-of-5
+      img.service-provider-logo(src='img/sp/etisalat.png' alt='logo')
+    .col.span-2-of-5
+      h3 Home Entertainment
+      p
+        span#home_entertainment_entity
+        span#home_entertainment_account
+    .col.span-1-of-5
+      h3
+        span#home_entertainment_amount
+    .col.span-1-of-5
+      a#home_entertainment_pay_button.btn.btn-ghost(href='#confirm-popup-home-entertainment') Pay
+  .row.bill
+    .col.span-1-of-5
+      img.service-provider-logo(src='img/sp/du.png' alt='Innovatee logo')
+    .col.span-2-of-5
+      h3 Mobile Phone
+      p
+        span#mobile_phone_entity
+        span#mobile_phone_account
+    .col.span-1-of-5
+      h3
+        span#mobile_phone_amount
+    .col.span-1-of-5
+      a#mobile_phone_pay_button.btn.btn-ghost(href='#confirm-popup-mobile-phone') Pay
+  .row.bill
+    .col.span-1-of-5
+      img.service-provider-logo(src='img/sp/innovate.png' alt='Innovatee logo')
+    .col.span-2-of-5
+      h3 Credit Card
+      p
+        span#credit_card_entity
+        span#credit_card_account
+    .col.span-1-of-5
+      h3
+        span#credit_card_amount
+    .col.span-1-of-5
+      a#credit_card_pay_button.btn.btn-ghost(href='#confirm-popup-credit-card') Pay
+
+//
+  -
+  Confirmation popups
+  -
+#confirm-popup-utiltities.overlay
+  .popup
+    h2 Proceed with payment?
+    a.close(href='#') &times;
+    .content
+      | You&apos;re about to pay $
+      span 600
+      |  towards your water &amp; utility bill.
+      span#utilities_bill_entity
+      span#utilities_bill_account
+    form#MQform.form-inline(action='/mq/600' method='post')
+      button#utilities_bill_amount.btn.btn-primary(type='submit' onclick='performPostRequest()' value='600' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;')
+        | Go ahead
+      //
+        <button
+        type="submit"
+        onclick="performPostRequest()"
+        class="btn btn-ghost" id="utilities_confirm_button"
+        style="display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;" value="500" id="utilities_bill_amount">
+        Go ahead
+        </button>
+    //
+      <a id="utilities_confirm_button" class="btn btn-full" href="">Go ahead</a>
+#confirm-popup-home-entertainment.overlay
+  .popup
+    h2 Proceed with payment?
+    a.close(href='#') &times;
+    .content
+      | You&apos;re about to pay $
+      span 100
+      |  towards your water &amp; utility bill.
+      span#utilities_bill_entity
+      span
+    form#MQform.form-inline(action='/mq/100' method='post')
+      button#water_bill.btn.btn-primary(type='submit' onclick='performPostRequest2()' value='100' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;')
+        | Go ahead
+      //
+        <button
+        type="submit"
+        onclick="performPostRequest2()"
+        class="btn btn-ghost" id="utilities_confirm_button"
+        style="display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;" value="1200" id="utilities_bill_amount">
+        Go ahead
+        </button>
+    //
+      <a id="utilities_confirm_button" class="btn btn-full" href="">Go ahead</a>
+#confirm-popup-mobile-phone.overlay
+  .popup
+    h2 Proceed with payment?
+    a.close(href='#') &times;
+    .content
+      | You&apos;re about to pay $
+      span 85
+      |  towards your phone bill.
+      span#utilities_bill_entity
+      span#utilities_bill_account
+    form#MQform.form-inline(action='/mq/85' method='post')
+      button#utilities_confirm_button.btn.btn-ghost(type='submit' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;' value='1200')
+        | Go ahead
+    //
+      <a id="utilities_confirm_button" class="btn btn-full" href="">Go ahead</a>
+#confirm-popup-credit-card.overlay
+  .popup
+    h2 Proceed with payment?
+    a.close(href='#') &times;
+    .content
+      | You&apos;re about to pay $
+      span 1200
+      |  towards your credit card bill.
+      span#utilities_bill_entity
+      span#utilities_bill_account
+    form#MQform.form-inline(action='/mq/1200' method='post')
+      button#utilities_confirm_button.btn.btn-ghost(type='submit' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;' value='1200')
+        | Go ahead
+    //
+      <a id="utilities_confirm_button" class="btn btn-full" href="">Go ahead</a>
+
+  #postResult.panel-body
+  //
+    -
+    Payment popups
+    -
+  #success.overlay
+    .popup
+      h2 Done!
+      a.close(href='#') &times;
+      .content
+        | Bill, down. Your payment was successfully completed.
+      i.ion-android-checkmark-circle.icon-big
+  #failure.overlay
+    .popup
+      h2 Something went wrong
+      a.close(href='#') &times;
+      .content
+        | Your payment could not be completed. Please try again or contact support.
+      i.ion-ios-close.icon-big
+  footer
+    .row
+      .col.span-1-of-2
+        ul.footer-nav
+          li
+            a About us
+          li
+            a Blog
+          li
+            a Press
+          li
+            a iOS App
+          li
+            a Android App
+      .col.span-1-of-2
+        ul.social-links
+          li
+            a(href='#')
+              i.ion-social-facebook
+          li
+            a(href='#')
+              i.ion-social-twitter
+          li
+            a(href='#')
+              i.ion-social-googleplus
+          li
+            a(href='#')
+              i.ion-social-instagram
+    .row
+      p
+        | Innovate is a dummy digital bank created for demo purposes.
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+  script(src='//cdn.jsdelivr.net/respond/1.4.2/respond.min.js')
+  script(src='//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js')
+  script(src='//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js')
+  script(src='js/noframework.waypoints.min.js')
+  //- script(src='js/bundle.js')
+  	
+
+  //- script(src='res/js/navbar.js')
+
