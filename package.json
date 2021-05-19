@@ -5,6 +5,10 @@
   "scripts": {
     "start": "nodemon ./bin/www"
   },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "~1.18.3",
