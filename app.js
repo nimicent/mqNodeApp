@@ -1,7 +1,6 @@
 const express      = require('express'),
       path         = require('path'),
       favicon      = require('serve-favicon'),
-      logger       = require('morgan'),
       cookieParser = require('cookie-parser'),
       bodyParser   = require('body-parser'),
       axios        = require('axios'),
@@ -9,7 +8,6 @@ const express      = require('express'),
       app          = express(),
       routes       = require('./routes/index');
 
-// app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
