@@ -9,7 +9,6 @@ const express      = require('express'),
       app          = express(),
       routes       = require('./routes/index');
 
-// app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
