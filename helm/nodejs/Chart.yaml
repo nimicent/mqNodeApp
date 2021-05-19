@@ -1,0 +1,9 @@
+name: nodejs
+version: 0.1
+description: Example MQ Node application
+keywords:
+- mq
+- nodejs
+home: https://access.redhat.com
+sources:
+- https://github.com/nimicent/mqNodeApp
