@@ -4,7 +4,8 @@ const express = require('express'),
 
 require('dotenv').config()
 
-var url = process.env.MQ_URL;
+const url = process.env.MQ_URL;
+
 const reqOptions = {
     headers: {
         'ibm-mq-rest-csrf-token': process.env.CSRF_TOKEN, 
