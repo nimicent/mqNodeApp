@@ -14,9 +14,9 @@ Create .env file to load environment variables. Here are some example values.
 ```sh
 MQ_USER= [your username you chose for your MQ service setup, for ex: 'juliagulia']
 MQ_PWD= [your API key, for ex: '534543uhurifwbsudifhbcwerfw']
-MQ_AUTH= [your MQ manager URL, bearer token]
+MQ_AUTH= [your bearer token]
 CSRF_TOKEN= [CSRF token required for MQ, can be any value like literally 'value']
-MQ_URL= [URL for MQ manager URL, for ex: 'https://web-mypersonalmqmanageryay-4fbi.qm1.us-south.mq.appdomain.cloud/ibmmq/rest/v2/messaging/qmgr/mypersonalmqmanageryay/queue/DEV.QUEUE.1/message']
+MQ_URL= [URL for MQ manager, for ex: 'https://web-mypersonalmqmanageryay-4fbi.qm1.us-south.mq.appdomain.cloud/ibmmq/rest/v2/messaging/qmgr/mypersonalmqmanageryay/queue/DEV.QUEUE.1/message']
 ```
 
 Install dependencies.
