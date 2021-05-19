@@ -8,16 +8,19 @@ The messages on the queue stay put until they can be processed by other programs
 
 ## Installation
 
-Requires [Node.js](https://nodejs.org/) v10+ and [IBM MQ](https://www.ibm.com/cloud/mq) service to run.
+Requires [IBM MQ](https://www.ibm.com/cloud/mq) service to run.
 
-Create .env file to load environment variables.
+Create .env file to load environment variables. Here are some example values.
 ```sh
-MQ_USER=
-MQ_PWD=
-MQ_AUTH=
-CSRF_TOKEN=
-MQ_URL=
+MQ_USER= [your username you chose for your MQ service setup, for ex: 'juliagulia']
+MQ_PWD= [your API key, for ex: '534543uhurifwbsudifhbcwerfw']
+MQ_AUTH= [your MQ manager URL, bearer token]
+CSRF_TOKEN= [CSRF token required for MQ, can be any value like literally 'value']
+MQ_URL= [URL for MQ manager URL, for ex: 'https://web-mypersonalmqmanageryay-4fbi.qm1.us-south.mq.appdomain.cloud/ibmmq/rest/v2/messaging/qmgr/mypersonalmqmanageryay/queue/DEV.QUEUE.1/message']
 ```
+
+MQ_USER= Your username you chose for your MQ service. 
+MQ_
 Install dependencies.
 ```sh
 cd mqNodeApp-main
