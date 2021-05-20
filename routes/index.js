@@ -2,10 +2,11 @@ const express = require('express'),
        router = express.Router(),
        axios  = require('axios');
 
+const User = require('../models/userModel')
+
 require('dotenv').config()
 
-const url = process.env.MQ_URL;
-
+var url = process.env.MQ_URL;
 const reqOptions = {
     headers: {
         'ibm-mq-rest-csrf-token': process.env.CSRF_TOKEN, 
@@ -16,14 +17,41 @@ const reqOptions = {
 
 router.get('/', function(req, res, next) {
     axios.delete(url, reqOptions)
-    .then((response) => {
-      res.render('index', { data: response.data });
+    .then(async (response) => {
+       const user = await User.findOne({ email: 'contact@julianash.io' })
+        .catch(err => console.error(err));
+
+      res.render('index', { data: response.data, amount: user.accountBalance });
     })
     .catch((error) => {
       console.log(error)
       res.render('index');
     });
 
+});
+
+router.post('/:amount', (req, res, next) => {
+  const amount = req.params.amount;
+
+  axios.get(url, reqOptions)
+    .then(async (response) => {
+
+      const user = await User.findOne({ email: 'contact@julianash.io' })
+        .catch(err => console.error(err));
+
+      if (user) {
+        user.accountBalance -= amount;
+        await user.save();
+        res.render('thanks', { 
+          data: response.data,
+          amount: user.accountBalance
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('index');
+    });
 });
 
 router.post('/mq/:cost', (req, res) => {
@@ -51,5 +79,6 @@ router.post('/mq/:cost', (req, res) => {
       res.redirect('/');
     });
 })  
+
 
 module.exports = router;

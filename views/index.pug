@@ -36,10 +36,25 @@ section.section-spending
   .row
     h3
       span#js-total
-    p Due this month: $3,562
+    p Due this month: $#{amount}
   .row
-    p#getResult1 Recent Transaction: $
+    p#getResult1 Recent Transaction: $ 
     p(style='font-weight: 200;') #{data} for grocery bill
+
+    //- form#MQform.form-inline(action='/queue/600' method='post')
+    //-   button#utilities_bill_amount.btn.btn-primary(type='submit' onclick='performGetRequest1()' value='600' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;')
+    //-     | Go ahead
+    //-   //
+    //-     <button
+    //-     type="submit"
+    //-     onclick="performPostRequest()"
+    //-     class="btn btn-ghost" id="utilities_confirm_button"
+    //-     style="display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;" value="500" id="utilities_bill_amount">
+    //-     Go ahead
+    //-     </button>
+    //- //
+    //-   <a id="utilities_confirm_button" class="btn btn-full" href="">Go ahead</a>
+
 section.section-bill-list
   .row.bill
     .col.span-1-of-5
@@ -108,7 +123,7 @@ section.section-bill-list
       |  towards your water &amp; utility bill.
       span#utilities_bill_entity
       span#utilities_bill_account
-    form#MQform.form-inline(action='/mq/600' method='post')
+    form#MQform.form-inline(action='/600' method='post')
       button#utilities_bill_amount.btn.btn-primary(type='submit' onclick='performPostRequest()' value='600' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;')
         | Go ahead
       //
@@ -131,7 +146,7 @@ section.section-bill-list
       |  towards your water &amp; utility bill.
       span#utilities_bill_entity
       span
-    form#MQform.form-inline(action='/mq/100' method='post')
+    form#MQform.form-inline(action='/100' method='post')
       button#water_bill.btn.btn-primary(type='submit' onclick='performPostRequest2()' value='100' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;')
         | Go ahead
       //
@@ -154,7 +169,7 @@ section.section-bill-list
       |  towards your phone bill.
       span#utilities_bill_entity
       span#utilities_bill_account
-    form#MQform.form-inline(action='/mq/85' method='post')
+    form#MQform.form-inline(action='/85' method='post')
       button#utilities_confirm_button.btn.btn-ghost(type='submit' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;' value='1200')
         | Go ahead
     //
@@ -169,7 +184,7 @@ section.section-bill-list
       |  towards your credit card bill.
       span#utilities_bill_entity
       span#utilities_bill_account
-    form#MQform.form-inline(action='/mq/1200' method='post')
+    form#MQform.form-inline(action='/1200' method='post')
       button#utilities_confirm_button.btn.btn-ghost(type='submit' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;' value='1200')
         | Go ahead
     //
