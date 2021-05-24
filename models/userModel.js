@@ -19,10 +19,26 @@ const userSchema = new mongoose.Schema ({
   accountBalance: {
     type: Number,
     required: [ true, 'you need an account balance w/ fake bank']
+  },
+  password: {
+    type: String,
+    required: [true, 'Come on']
+  },
+  pwdConfirm: {
+    type: String,
+    required: true
   }
 });
 
 const User = mongoose.model('User', userSchema);
+
+
+
+
+module.exports = User;
+
+
+// test
 
 // const testUserSignup = new User({
 //   name: 'Julia Nash',
@@ -34,5 +50,5 @@ const User = mongoose.model('User', userSchema);
 //   console.log(doc);
 // }).catch(err => {
 //   console.log('error 🤔 ' + err)
+
 // })
-module.exports = User;

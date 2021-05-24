@@ -12,6 +12,7 @@ const express      = require('express'),
       dotenv       = require('dotenv'),
       validator    = require('validator');
 
+
 //view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -29,7 +30,8 @@ app.use(express.static(`${__dirname}/public`));
 dotenv.config({ path: '.env' });
 
 //set routing
-const route      = require('./routes/index');
+const route = require('./routes/index');
+
 
 // IBM Cloud DB for MongoDB setup -
 let ca = Buffer.from(process.env.CERTIFICATE_BASE64, "base64");
@@ -58,6 +60,7 @@ db.once('open', function(){
 
 //map routing
 app.use('/', cors(), route);
+
 
 //404s
 app.use(function(req, res, next) {

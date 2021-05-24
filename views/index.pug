@@ -15,7 +15,7 @@ head
 header.bar
   nav
     .row
-      img.logo(src='img/logo-outline.png' alt='Innovate logo')
+      img.logo(src='images/mqicons.png' alt='Innovate logo')
       img.logo-black(src='images/logo.png' alt='Innovatee logo')
       ul.main-nav
         li
@@ -143,18 +143,18 @@ section.section-bill-list
     .content
       | You&apos;re about to pay $
       span 100
-      |  towards your water &amp; utility bill.
+      |  towards your home entertainment bill.
       span#utilities_bill_entity
       span
     form#MQform.form-inline(action='/100' method='post')
-      button#water_bill.btn.btn-primary(type='submit' onclick='performPostRequest2()' value='100' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;')
+      button#utilities_bill_amount.btn.btn-primary(type='submit' onclick='performPostRequest()' value='600' style='display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8 !important;')
         | Go ahead
       //
         <button
         type="submit"
-        onclick="performPostRequest2()"
+        onclick="performPostRequest()"
         class="btn btn-ghost" id="utilities_confirm_button"
-        style="display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8;" value="1200" id="utilities_bill_amount">
+        style="display: inline-block;padding: 10px 30px;font-weight: 300;text-decoration: none;border-radius: 200px;-webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;transition: background-color 0.2s, border 0.2s, color 0.2s;background: #ecd9c8 !important;" value="500" id="utilities_bill_amount">
         Go ahead
         </button>
     //
