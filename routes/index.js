@@ -70,8 +70,8 @@ router.post("/signup", async (req, res, next) => {
   try {
     await new User(newUser).save();
   } catch (err) {
-    console.error("error 🤔 " + err); // hmm...hmm...
-  } finally { // yay
+    console.error("error 🤔 " + err); 
+  } finally { 
     console.log("⭐️ A brand new user has been created! 🥰"); 
   }
 });
